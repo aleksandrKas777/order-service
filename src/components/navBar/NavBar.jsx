@@ -11,7 +11,7 @@ export const NavBar = () => {
     <nav className="px-4 bg-white vh-100 shadow py-3 sticky-top">
       <NavLink to="/" className="mb-4 d-flex text-decoration-none gap-3">
         {/*<LogoIcon width={30} />*/}
-        <h3 className={'text-decoration-none text-black mb-0'}>liketender</h3>
+        <h4 className={'text-decoration-none text-black mb-0 text-nowrap'}>Order Service</h4>
       </NavLink>
       <ul className={'d-flex flex-column p-0'}>
         {navItems.map((item) => (

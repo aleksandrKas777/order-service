@@ -7,7 +7,7 @@ export const Layout = ({children}) => {
   return (
     <div className={'d-flex'}>
       {location.pathname !== '/login' && <NavBar />}
-      <div className={'p-3'} style={{boxSizing: 'border-box'}}>{children}</div>
+      <div className={'p-3 w-100'} style={{boxSizing: 'border-box'}}>{children}</div>
     </div>
   )
 }

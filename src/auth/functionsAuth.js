@@ -4,38 +4,26 @@ import { refreshApi } from "@/api/api.js";
 export const storageName = {
   access: 'access',
   refresh: 'refresh',
-  isRememberMe: 'isRememberMe',
+  role: 'role'
 }
 
 export const refreshAuth = async (refreshToken) => {
-  const {access_token, refresh_token: newRefreshToken} = await refreshApi({
+  const {access, refresh: newRefreshToken} = await refreshApi({
     refresh_token: refreshToken,
   })
-  
-  const typeStorage = JSON.parse(localStorage.getItem(storageName.isRememberMe))
-    ? localStorage
-    : sessionStorage
-  
-  sessionStorage.setItem(storageName.access, JSON.stringify(access_token))
-  typeStorage.setItem(storageName.refresh, JSON.stringify(newRefreshToken))
-  // sessionStorage.removeItem(storageName.refresh)
-  return access_token
+  localStorage.setItem(storageName.access, JSON.stringify(access))
+  localStorage.setItem(storageName.refresh, JSON.stringify(newRefreshToken))
+  return access
 }
 
 export const logoutAuth = () => {
-  localStorage.removeItem(storageName.isRememberMe)
   localStorage.removeItem(storageName.refresh)
-  sessionStorage.removeItem(storageName.refresh)
-  sessionStorage.removeItem(storageName.access)
+  localStorage.removeItem(storageName.access)
+  localStorage.removeItem(storageName.role)
 }
 
-export const loginAuth = ({isRememberMe, access_token, refresh_token}) => {
-  const typeStorage = isRememberMe ? localStorage : sessionStorage
-  
-  localStorage.setItem(storageName.isRememberMe, JSON.stringify(isRememberMe))
-  sessionStorage.setItem(storageName.access, JSON.stringify(access_token))
-  typeStorage.setItem(storageName.refresh, JSON.stringify(refresh_token))
-  
-  // sessionStorage.removeItem(storageName.refresh)
-  // localStorage.removeItem(storageName.refresh)
+export const loginAuth = ({access, refresh, role}) => {
+  localStorage.setItem(storageName.role, JSON.stringify(role))
+  localStorage.setItem(storageName.access, JSON.stringify(access))
+  localStorage.setItem(storageName.refresh, JSON.stringify(refresh))
 }

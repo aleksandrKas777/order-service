@@ -1,8 +1,19 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom"
 import { routes } from "@/router/routes.jsx"
 import { Layout } from "@/components/layout/Layout.jsx";
+import { useAuth } from "@/auth/AuthProvider.jsx";
+import { useEffect } from "react";
 
 export const Router = () => {
+  const {isLogged} = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
+  
+  useEffect(() => {
+    if (!isLogged) navigate('/login')
+    if (isLogged && location.pathname === '/login') navigate('/orders')
+  }, [isLogged])
+  
   return (
     <Routes>
       {routes.map((item) => {
