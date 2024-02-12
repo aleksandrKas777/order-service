@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Breadcrumbs } from "@/components/breadcrumbs/Breadcrumbs";
 import { Button } from "react-bootstrap";
 import { ROLES } from "@/constants/roles.js";
+import { statuses } from "@/pages/orders/OrderEdit.jsx";
 
 const columns = [
   {
@@ -19,6 +20,10 @@ const columns = [
   {
     field: (row) => row.name,
     title: 'Имя',
+  },
+  {
+    field: (row) => statuses.find(item => item.id === row.status).title,
+    title: 'Статус',
   },
   {
     field: (row) => new Date(row.created_at).toLocaleDateString(),
@@ -50,7 +55,7 @@ export const Orders = () => {
   
   return (
     <>
-      <div className={'d-flex justify-content-between align-items-center'}>
+      <div className={'d-flex justify-content-between align-items-center mb-2'}>
         <Breadcrumbs crumbs={breadcrumbs}/>
         {role === ROLES.USER && <Button as={Link} to={'/orders/add'} variant={'success'}>Добавить заказ</Button>}
       </div>

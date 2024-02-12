@@ -9,3 +9,5 @@ export const getOrder = (id) => axiosInstance(`orders/${id}/`)
 export const createOrder = (data) => axiosInstance.post('orders/', data)
 
 export const patchOrder = ({id, data}) => axiosInstance.patch(`orders/${id}/`, data)
+
+export const getCouriers = () => axiosInstance('couriers/')
