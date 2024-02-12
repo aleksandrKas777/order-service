@@ -41,6 +41,10 @@ export const OrderInfo = () => {
           <p className={'fw-normal'}>{orderData?.phone || '-'}</p>
         </FormLabel>
         <FormLabel className={'fw-bolder'}>
+          Цена
+          <p className={'fw-normal'}>{orderData?.price || '-'}</p>
+        </FormLabel>
+        <FormLabel className={'fw-bolder'}>
           Статус
           <p className={'fw-normal'}>{orderData?.status || '-'}</p>
         </FormLabel>

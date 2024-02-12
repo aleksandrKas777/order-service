@@ -36,7 +36,7 @@ export const DataTable = ({
                 const { field } = _item
                 if (typeof field === 'string') {
                   return (
-                    <td key={_index} className={'p-1'}>
+                    <td key={_index} className={'px-4'}>
                       {item[field].length > 20
                         ? `${item[field].slice(0, 17)}...`
                         : item[field]}
@@ -44,7 +44,7 @@ export const DataTable = ({
                   )
                 }
                 return (
-                  <td key={_index} className={'p-1'}>
+                  <td key={_index} className={'px-4'}>
                     {field(item)}
                   </td>
                 )

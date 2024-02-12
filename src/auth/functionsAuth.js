@@ -9,7 +9,7 @@ export const storageName = {
 
 export const refreshAuth = async (refreshToken) => {
   const {access, refresh: newRefreshToken} = await refreshApi({
-    refresh_token: refreshToken,
+    refresh: refreshToken,
   })
   localStorage.setItem(storageName.access, JSON.stringify(access))
   localStorage.setItem(storageName.refresh, JSON.stringify(newRefreshToken))

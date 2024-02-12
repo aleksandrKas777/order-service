@@ -9,7 +9,7 @@ import { ROLES } from "@/constants/roles.js";
 
 const columns = [
   {
-    field: (row) => <Link to={`/orders/${row.id}`}>{row.id}</Link>,
+    field: (row) => <Link to={`/orders/${row.id}`} className={'text-success text-decoration-none'}>{row.id}</Link>,
     title: 'ID',
   },
   {
