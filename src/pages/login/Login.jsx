@@ -2,6 +2,7 @@ import { Button, Card } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { InputNoControl } from "@/components/inputs/InputNoControl.jsx";
 import { useAuth } from "@/auth/AuthProvider.jsx";
+import { Link } from "react-router-dom";
 
 const fieldsNames = {
   email: 'email',
@@ -16,7 +17,7 @@ export const Login = () => {
   
   const { login } = useAuth()
   
-  const onsubmit = (data) => {
+  const onSubmit = (data) => {
     login({data})
   }
   return (
@@ -47,10 +48,11 @@ export const Login = () => {
             ? 'Неверный логин или пароль'
             : ' '}
         </p>
+        <Link to={'/registration'} className={'text-success text-end mb-2'}>Регистрация</Link>
         <Button
           variant={'success'}
           className={'text-white'}
-          onClick={handleSubmit(onsubmit)}
+          onClick={handleSubmit(onSubmit)}
         >
           Войти
         </Button>

@@ -10,7 +10,7 @@ export const Router = () => {
   const location = useLocation()
   
   useEffect(() => {
-    if (!isLogged) navigate('/login')
+    if (!isLogged && location.pathname !== '/registration' ) navigate('/login')
     if (isLogged && location.pathname === '/login') navigate('/orders')
   }, [isLogged])
   

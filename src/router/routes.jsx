@@ -6,11 +6,19 @@ import { OrderAdd } from "@/pages/orders/OrderAdd";
 import { OrderEdit } from "@/pages/orders/OrderEdit";
 import { OrderInfo } from "@/pages/orders/OrderInfo";
 import { ROLES } from "@/constants/roles.js";
+import { Registration } from "@/pages/registration/Registration";
+
 export const routes = [
   {
     path: '/login',
     private: false,
     element: <Login/>,
+    roles: ROLES.ALL
+  },
+  {
+    path: '/registration',
+    private: false,
+    element: <Registration/>,
     roles: ROLES.ALL
   },
   {

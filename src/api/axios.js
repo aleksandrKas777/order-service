@@ -5,6 +5,6 @@ export const axiosInstanceBase = axios.create({
   baseURL: `${BASE_URL}/api/v1/`,
 })
 export const axiosAuth = axios.create({
-  baseURL: `${BASE_URL}/api/v1/api/`
+  baseURL: `${BASE_URL}/api/v1/`
 })
 
