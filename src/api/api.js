@@ -12,3 +12,5 @@ export const createOrder = (data) => axiosInstance.post('orders/', data)
 export const patchOrder = ({id, data}) => axiosInstance.patch(`orders/${id}/`, data)
 
 export const getCouriers = () => axiosInstance('couriers/')
+export const getFeedbacks = () => axiosInstance('feedback/')
+export const createFeedback = (data) => axiosInstance.post('feedback/', data)

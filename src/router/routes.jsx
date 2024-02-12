@@ -1,12 +1,14 @@
 import { Login } from "@/pages/login/Login.jsx";
 import { Navigate } from "react-router-dom";
 import { Orders } from "@/pages/orders/Orders";
-import {UserIcon} from '@/assets/images/icons'
+import { MailingIcon, UserIcon } from '@/assets/images/icons/index.js'
 import { OrderAdd } from "@/pages/orders/OrderAdd";
 import { OrderEdit } from "@/pages/orders/OrderEdit";
 import { OrderInfo } from "@/pages/orders/OrderInfo";
 import { ROLES } from "@/constants/roles.js";
 import { Registration } from "@/pages/registration/Registration";
+import { Feedbacks } from "@/pages/feedbacks/Feedbacks";
+import { FeedbackAdd } from "@/pages/feedbacks/FeedbackAdd.jsx";
 
 export const routes = [
   {
@@ -20,6 +22,24 @@ export const routes = [
     private: false,
     element: <Registration/>,
     roles: ROLES.ALL
+  },
+  {
+    path: '/feedbacks',
+    private: true,
+    element: <Feedbacks/>,
+    roles: ROLES.MANAGER,
+    navBar: true,
+    title: 'Отзывы',
+    icon: <MailingIcon />,
+  },
+  {
+    path: '/feedbacks/add',
+    private: true,
+    element: <FeedbackAdd/>,
+    roles: ROLES.USER,
+    navBar: true,
+    title: 'Отзывы',
+    icon: <MailingIcon />,
   },
   {
     path: '/orders',

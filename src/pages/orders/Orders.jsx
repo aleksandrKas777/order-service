@@ -22,7 +22,7 @@ const columns = [
     title: 'Имя',
   },
   {
-    field: (row) => statuses.find(item => item.id === row.status).title,
+    field: (row) => statuses.find(item => item.id === row.status)?.title,
     title: 'Статус',
   },
   {

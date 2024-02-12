@@ -3,7 +3,6 @@ import { InputNoControl } from "@/components/inputs/InputNoControl.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registrationApi } from "@/api/api.js";
-import { useAuth } from "@/auth/AuthProvider.jsx";
 import { toast } from "react-toastify";
 
 const fieldsNames = {
@@ -12,11 +11,10 @@ const fieldsNames = {
 }
 
 export const Registration = () => {
-  // const { registration } = useAuth()
+  
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm()
   const navigate = useNavigate()
   
